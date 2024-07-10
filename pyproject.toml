@@ -1,0 +1,58 @@
+[project]
+name = "simpy-playground"
+dynamic = ["version"]
+description = "A SimPy playground to experiment with multiple simulation scenarios."
+authors = [{ name = "R Max Espinoza", email = "hey@rmax.dev" }]
+dependencies = ["simpy"]
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">= 3.10"
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Education",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Natural Language :: English",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: Implementation :: CPython",
+    "Programming Language :: Python :: Implementation :: PyPy",
+    "Topic :: Scientific/Engineering",
+]
+[project.scripts]
+simpy-play = 'simpy_playground.__main__:main'
+
+
+[project.urls]
+Homepage = "https://github.com/rmax/simpy-playground/"
+Source = "https://github.com/rmax/simpy-playground/"
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+raw-options = { version_scheme = "no-guess-dev" }
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/simpy_playground/_version.py"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.sdist]
+include = ["src/simpy_playground"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/simpy_playground"]
