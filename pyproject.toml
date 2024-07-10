@@ -46,7 +46,12 @@ version-file = "src/simpy_playground/_version.py"
 
 [tool.rye]
 managed = true
-dev-dependencies = []
+dev-dependencies = [
+    "pytest>=8.2.2",
+    "pytest-cov>=5.0.0",
+    "pre-commit>=3.7.1",
+    "pyright>=1.1.371",
+]
 
 [tool.hatch.metadata]
 allow-direct-references = true
@@ -56,3 +61,12 @@ include = ["src/simpy_playground"]
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/simpy_playground"]
+
+[tool.ruff]
+target-version = "py310"
+line-length = 120
+
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q -vvv --cov=simpy_playground"
+testpaths = ["tests"]
